@@ -1,5 +1,6 @@
 import { Navigate, useNavigate, useParams } from "react-router";
 import { getHeroById } from "../helpers";
+import { useMemo } from "react";
 
 export const HeroPage = () => {
   //obtengo los segmentos de los query  params  //hero/dc-batman
@@ -12,7 +13,7 @@ export const HeroPage = () => {
   // const { id, ...rest } = useParams();
   // console.log({ id }, { rest });
 
-  const hero = getHeroById(id);
+  const hero = useMemo(() => getHeroById(id), [id]);
   //información del hero
   //console.log(hero);
 
